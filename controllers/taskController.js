@@ -34,10 +34,7 @@ exports.addTaskProcess = (req, res) => {
         .then(() => {
             res.redirect('/list')
             //delete document after given duration
-            new Promise((_, reject) => reject(
-                task.createIndex({createdAt: task.createdAt},{expireAfterSeconds: duration*60})
-            ))
-            .catch(error => { console.log('caught error'); });
+            
     })
         .catch(err => res.status(400).json(err))
 }
