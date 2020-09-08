@@ -1,0 +1,39 @@
+<%- include ('header') %>
+<div class="row">
+    <div class="col">
+        <h1><%=title%></h1>        
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>S.No</th>
+                    <th>Task Name</th>
+                    <th>Description</th>
+                    <th>Creator</th>
+                    <th>Duration</th>
+                    <th>CreatedAt</th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                <% tasks.forEach((task, index) => { %>
+                    <tr>
+                        <td><%=(index+1)%></td>
+                        <td><%=task.name%></td>
+                        <td><%=task.description%></td>
+                        <td><%=task.creator%></td>
+                        <td><%=task.duration%> Minutes</td>
+                        <td><%=task.createdAt.getFullYear()%>-<%=task.createdAt.getMonth()+1%>-<%=task.createdAt.getDate()%> T <%=task.createdAt.getHours()%>:<%=task.createdAt.getMinutes()%> </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>        
+    </div>
+</div>
+
+<%- include ('footer') %>
